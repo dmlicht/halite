@@ -18,11 +18,8 @@ def choose_move(location):
 
     # Our space is on the border. Attack the weakest enemy.
     if len(enemies) > 0:
-        weakest_direction, weakest_site = weakest(enemies)
-        if site.strength < weakest_site.strength + 1 and site.strength < 255: # wait
-            return Move(location, STILL)
-        else:
-            return Move(location, weakest_direction)
+        weakest_direction, _ = weakest(enemies)
+        return Move(location, weakest_direction)
 
     # Move inner
     else:
